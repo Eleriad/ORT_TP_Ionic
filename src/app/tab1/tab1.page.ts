@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RecetteService } from '../services/recette.service';
 
 @Component({
   selector: 'app-tab1',
@@ -7,6 +8,12 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  recettes = [];
+
+  constructor(public recetteService: RecetteService) { }
+
+  ngOnInit() {
+    this.recetteService.loadSaved().then(recettes => this.recettes = recettes);
+  }
 
 }

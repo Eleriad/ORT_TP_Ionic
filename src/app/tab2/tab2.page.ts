@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { RecetteService } from '../services/recette.service';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +9,17 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  recette = {};
+
+  constructor(
+    public recetteService: RecetteService,
+    private router: Router
+  ) { }
+
+  RecipeForm() {
+    this.recetteService.addNewRecipeToList(this.recette);
+    this.recette = {};
+    this.router.navigate(['/']);
+  }
 
 }

@@ -1,17 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
+    <ion-title [style.font-size.rem]="2">
+      Page de recettes
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content>
+  <ion-card *ngFor="let recette of recettes">
+    <ul>
+      <ion-card-content>
+        <b [style.font-size.rem]="1">{{recette.titre}}</b>
+        <p [style.font-size.rem]="0.7">{{recette.texte}}</p>
+      </ion-card-content>
+    </ul>
+  </ion-card>
 </ion-content>

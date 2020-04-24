@@ -1,17 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 2
+    <ion-title [style.font-size.rem]="2">
+      Page d'ajout
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-content>
+  <form (ngSubmit)="RecipeForm()">
+    <ion-input type="text" [(ngModel)]="recette.titre" name="titreRecette"></ion-input>
+    <ion-input type="text" [(ngModel)]="recette.texte" name="texteRecette"></ion-input>
+    <button ion-button type="submit" block>Ajouter une recette</button>
+  </form>
 </ion-content>
