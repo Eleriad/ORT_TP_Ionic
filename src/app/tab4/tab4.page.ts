@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import { RecetteService } from '../services/recette.service';
+import { RecetteService } from '../services/recette.service';
 
+import { Recette } from '../model/recette.model';
 @Component({
   selector: 'app-tab4',
   templateUrl: './tab4.page.html',
@@ -8,27 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Tab4Page implements OnInit {
 
-  // recettes: any = [];
-  recettes: any = [];
+  recettes: Recette[] = [];
+  search: string = "";
 
-  constructor() { }
+  constructor(public recetteService: RecetteService) { }
 
   ngOnInit() {
-    this.recettes = [];
-    // this.setFilteredItems();
-    // this.recetteService.loadSaved().then(recettes => this.recettes = recettes);
   }
 
-  recipeSearch(recette) {
-    console.log(recette);
+  recipeSearch() {
+    // console.log(this.search);
+    this.recetteService.filterRecipe(this.search).then(recettes => this.recettes = recettes);
+    console.log(this.recettes);
   }
-
-  selectRecipe(recette: any) {
-    console.log(recette);
-  }
-
-  // setFilteredItems() {
-  // this.recettes = this.recetteService.filterRecipe(this.searchRecipe);
-  // }
 
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RecetteService } from '../services/recette.service';
 
+import { Recette } from '../model/recette.model';
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -9,7 +10,7 @@ import { RecetteService } from '../services/recette.service';
 
 export class Tab3Page {
 
-  recettes = [];
+  recettes: Recette[];
 
   constructor(public recetteService: RecetteService) { }
 
@@ -17,13 +18,12 @@ export class Tab3Page {
     this.recetteService.loadSaved().then(recettes => this.recettes = recettes);
   }
 
-  editRecipe(recette) {
+  editRecipe() {
     console.log("Edit");
   }
 
-  deleteRecipe(recette) {
+  deleteRecipe(recette: Recette) {
     this.recetteService.delete(recette).then(recettes => this.recettes = recettes);
   }
 
 }
-

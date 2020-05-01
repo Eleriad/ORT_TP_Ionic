@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RecetteService } from '../services/recette.service';
 
+import { Recette } from '../model/recette.model';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -8,7 +9,7 @@ import { RecetteService } from '../services/recette.service';
 })
 export class Tab1Page {
 
-  recettes = [];
+  recettes: Recette[];
 
   constructor(public recetteService: RecetteService) { }
 

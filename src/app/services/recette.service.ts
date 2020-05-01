@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Plugins } from '@capacitor/core';
-import { HttpParams } from '@angular/common/http';
+
+import { Recette } from '../model/recette.model';
 
 const { Storage } = Plugins;
 
@@ -9,12 +10,12 @@ const { Storage } = Plugins;
 })
 export class RecetteService {
 
-  private recettes: string[] = [];
+  public recettes: Recette[] = [];
   private ITEM_STORAGE: string = "recettes";
 
   constructor() { }
 
-  public async addNewRecipeToList(recette) {
+  public async addNewRecipeToList(recette: Recette) {
     this.recettes.push(recette);
 
     Storage.set({
@@ -30,7 +31,7 @@ export class RecetteService {
     return this.recettes;
   }
 
-  public async delete(recette) {
+  public async delete(recette: Recette) {
     this.recettes = this.recettes.filter(h => h !== recette);
 
     Storage.set({
@@ -41,9 +42,11 @@ export class RecetteService {
     return this.recettes;
   }
 
-  public async filterRecipe(recette) {
-    const filter = `{"where":{"titre":{"like":"%${recette}%"}}}`;
-    const params = new HttpParams().set('filter', filter);
-    // this.recettes.get(this.recette, filter);
+  public async filterRecipe(requete) {
+    // console.log(requete);
+    return this.recettes.filter(function (el) {
+      return el.titre.toLowerCase().indexOf(requete.toLowerCase()) !== -1;
+    });
   }
+
 }

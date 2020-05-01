@@ -5,11 +5,11 @@
 </ion-header>
 
 <ion-content padding>
-  <input type="text" #recette class="form-control" (keyup)="recipeSearch(recette)">
+  <input type="text" [(ngModel)]="search" class="form-control" (keyup)="recipeSearch()">
   <ul>
-    <li *ngFor="let recette of recettes" class="list-group-item" (click)="selectRecipe(recette)">
+    <li *ngFor="let recette of recettes" class="list-group-item">
       <b [style.font-size.rem]="1">{{recette.titre}}</b>
-      <p [style.font-size.rem]="0.7">{{recette.texte}}</p>
+      <!-- <p [style.font-size.rem]="0.7">{{recette.texte}}</p> -->
     </li>
   </ul>
 </ion-content>
