@@ -26,6 +26,7 @@
     "@ionic/angular": "^5.0.0",
     "@ionic/pwa-elements": "^1.5.2",
     "@ionic/storage": "^2.2.0",
+    "@mobiscroll/angular": "https://npm.mobiscroll.com/@mobiscroll/angular-trial/-/angular-trial-4.10.3.tgz",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",

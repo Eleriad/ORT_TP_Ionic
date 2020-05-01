@@ -6,12 +6,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Préférences</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<ion-content>
+  <ion-card *ngFor="let recette of recettes">
+    <ul>
+      <ion-card-content>
+        <b [style.font-size.rem]="1">{{recette.titre}}</b>
+        <p [style.font-size.rem]="0.7">{{recette.texte}}</p>
+        <p class="icons">
+          <ion-button block fill="outline" color="light" (click)="editRecipe(recette)">
+            <ion-icon class="edit" name="create-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+          <ion-button block fill="outline" color="light" (click)="deleteRecipe(recette)">
+            <ion-icon class="delete" name="trash-outline" slot="icon-only"></ion-icon>
+          </ion-button>
+        </p>
+      </ion-card-content>
+    </ul>
+  </ion-card>
 </ion-content>

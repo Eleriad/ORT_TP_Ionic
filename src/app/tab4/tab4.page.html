@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Rechercher une recette</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <input type="text" #recette class="form-control" (keyup)="recipeSearch(recette)">
+  <ul>
+    <li *ngFor="let recette of recettes" class="list-group-item" (click)="selectRecipe(recette)">
+      <b [style.font-size.rem]="1">{{recette.titre}}</b>
+      <p [style.font-size.rem]="0.7">{{recette.texte}}</p>
+    </li>
+  </ul>
+</ion-content>

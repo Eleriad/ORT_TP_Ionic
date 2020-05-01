@@ -10,6 +10,6 @@
   <form (ngSubmit)="RecipeForm()">
     <ion-input type="text" [(ngModel)]="recette.titre" name="titreRecette"></ion-input>
     <ion-input type="text" [(ngModel)]="recette.texte" name="texteRecette"></ion-input>
-    <button ion-button type="submit" block>Ajouter une recette</button>
+    <ion-button type="submit" block expand="full" fill="solid" color="light">Ajouter une recette</ion-button>
   </form>
 </ion-content>
