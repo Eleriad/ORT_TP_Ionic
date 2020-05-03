@@ -1,10 +1,8 @@
 main.inner-scroll {
     display: flex;
     flex-direction: column;
-}
-
-ion-card-content {
-    color: goldenrod;
+    text-align: center;
+    justify-content: center;
 }
 
 .form-control {
@@ -13,4 +11,18 @@ ion-card-content {
     justify-content: center;
     padding: 5px;
     color: black;
+}
+
+li {
+    padding: 10px;
+    color: goldenrod;
+}
+
+input {
+    width: 75%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-top: 10px;
 }
